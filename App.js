@@ -6,7 +6,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import { useFonts as useOswald, Oswald_400Regular } from "@expo-google-fonts/oswald";
+import {
+  useFonts as useOswald,
+  Oswald_400Regular,
+} from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
 import { theme } from "./src/features/restaurants/infrastructure/theme";
@@ -45,7 +48,11 @@ const createScreenOptions = ({ route }) => {
 
   return {
     tabBarIcon: ({ focused, size, color }) => (
-      <Ionicons name={focused ? `${iconName}-outline` : iconName} size={size} color={color} />
+      <Ionicons
+        name={focused ? `${iconName}-outline` : iconName}
+        size={size}
+        color={color}
+      />
     ),
     tabBarActiveTintColor: "tomato",
     tabBarInactiveTintColor: "gray",
