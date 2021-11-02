@@ -36,7 +36,20 @@ export const MapScreen = () => {
           latitudeDelta: latDelta,
           longitudeDelta: 0.02,
         }}
-      />
+      >
+        {restaurants.map((restaurant) => {
+          return (
+            <MapView.Marker
+              key={restaurant.name}
+              title={restaurant.name}
+              coordinate={{
+                latitude: restaurant.geometry.location.lat,
+                longitude: restaurant.geometry.location.lng,
+              }}
+            ></MapView.Marker>
+          );
+        })}
+      </Map>
     </>
   );
 };
