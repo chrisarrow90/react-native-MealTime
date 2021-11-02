@@ -10,21 +10,27 @@ const FavouritesWrapper = styled.View`
   padding: 10px;
 `;
 
-export const FavouritesBar = ({ favourites, navigate }) => (
-  <FavouritesWrapper>
-    <Spacer position="left" size="medium">
-      <Text variant="caption">Favourites</Text>
-    </Spacer>
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      {favourites.map((restaurant) => {
-        return (
-          <Spacer key={restaurant.name} position="left" size="medium">
-            <TouchableOpacity onPress={() => navigate("RestaurantDetail", { restaurant })}>
-              <CompactRestaurantInfo restaurant={restaurant} />
-            </TouchableOpacity>
-          </Spacer>
-        );
-      })}
-    </ScrollView>
-  </FavouritesWrapper>
-);
+export const FavouritesBar = ({ favourites, navigate }) => {
+  if (!favourites.length) {
+    return null;
+  }
+
+  return (
+    <FavouritesWrapper>
+      <Spacer position="left" size="medium">
+        <Text variant="caption">Favourites</Text>
+      </Spacer>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {favourites.map((restaurant) => {
+          return (
+            <Spacer key={restaurant.name} position="left" size="medium">
+              <TouchableOpacity onPress={() => navigate("RestaurantDetail", { restaurant })}>
+                <CompactRestaurantInfo restaurant={restaurant} />
+              </TouchableOpacity>
+            </Spacer>
+          );
+        })}
+      </ScrollView>
+    </FavouritesWrapper>
+  );
+};
