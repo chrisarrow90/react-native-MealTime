@@ -9,7 +9,7 @@ import { SafeArea } from "../../../components/utility/safe-area.component";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
-import { Search } from "../components/search-component";
+import { Search } from "../components/search.component";
 
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
@@ -44,9 +44,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           console.log(item);
           return (
             <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("RestaurantDetail", { restaurant: item })
-              }
+              onPress={() => navigation.navigate("RestaurantDetail", { restaurant: item })}
             >
               <Spacer position="bottom" size="large">
                 <RestaurantInfoCard restaurant={item} />

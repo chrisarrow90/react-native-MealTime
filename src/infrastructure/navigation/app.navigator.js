@@ -7,19 +7,12 @@ import { Ionicons } from "@expo/vector-icons";
 import { SafeArea } from "../../components/utility/safe-area.component";
 
 import { RestaurantsNavigator } from "./restaurants.navigator";
+import { MapScreen } from "../../features/map/screens/map.screen";
 
 function SettingsScreen() {
   return (
     <SafeArea>
       <Text>Settings!</Text>
-    </SafeArea>
-  );
-}
-
-function MapScreen() {
-  return (
-    <SafeArea>
-      <Text>Map!</Text>
     </SafeArea>
   );
 }
@@ -37,11 +30,7 @@ const createScreenOptions = ({ route }) => {
 
   return {
     tabBarIcon: ({ focused, size, color }) => (
-      <Ionicons
-        name={focused ? `${iconName}-outline` : iconName}
-        size={size}
-        color={color}
-      />
+      <Ionicons name={focused ? `${iconName}-outline` : iconName} size={size} color={color} />
     ),
     tabBarActiveTintColor: "tomato",
     tabBarInactiveTintColor: "gray",
@@ -54,8 +43,8 @@ export const AppNavigator = () => {
     <NavigationContainer>
       <Tab.Navigator screenOptions={createScreenOptions}>
         <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
         <Tab.Screen name="Map" component={MapScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
