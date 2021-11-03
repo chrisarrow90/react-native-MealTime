@@ -4,5 +4,5 @@ import { CompactRestaurantInfo } from "../../../components/restaurant/compact-re
 
 export const MapCallout = ({ restaurant }) => {
   console.log(restaurant);
-  return <CompactRestaurantInfo restaurant={restaurant} />;
+  return <CompactRestaurantInfo isMap restaurant={restaurant} />;
 };
