@@ -24,7 +24,11 @@ const createScreenOptions = ({ route }) => {
 
   return {
     tabBarIcon: ({ focused, size, color }) => (
-      <Ionicons name={focused ? `${iconName}-outline` : iconName} size={size} color={color} />
+      <Ionicons
+        name={focused ? `${iconName}-outline` : iconName}
+        size={size}
+        color={color}
+      />
     ),
     tabBarActiveTintColor: "tomato",
     tabBarInactiveTintColor: "gray",
