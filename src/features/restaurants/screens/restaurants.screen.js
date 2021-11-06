@@ -36,15 +36,22 @@ export const RestaurantsScreen = ({ navigation }) => {
           <LoadingIndicator animating={true} size={50} color={Colors.blue300} />
         </LoadingContainer>
       )}
-      <Search isFavouritesToggled={isToggled} onFavouritesToggle={() => setIsToggled(!isToggled)} />
-      {isToggled && <FavouritesBar favourites={favourites} navigate={navigation.navigate} />}
+      <Search
+        isFavouritesToggled={isToggled}
+        onFavouritesToggle={() => setIsToggled(!isToggled)}
+      />
+      {isToggled && (
+        <FavouritesBar favourites={favourites} navigate={navigation.navigate} />
+      )}
       <RestaurantList
         data={restaurants}
         renderItem={({ item }) => {
           // console.log(item);
           return (
             <TouchableOpacity
-              onPress={() => navigation.navigate("RestaurantDetail", { restaurant: item })}
+              onPress={() =>
+                navigation.navigate("RestaurantDetail", { restaurant: item })
+              }
             >
               <Spacer position="bottom" size="large">
                 <FadeInView>
